@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+interface addable{
+    int add(int a,int b);
+    }
+interface details{
+    String name(String na);
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        //for each using lambda
+        ArrayList<String> names = new ArrayList<String>();
+        names.add("Akrithi");
+        names.add("Amisha");
+        names.add("Anusha");
+        names.forEach((s)->System.out.println(s));
+
+        //interface using lambda
+        //single body statement with multiple parameter
+        addable ad = (a,b)->(a+b);
+        System.out.println(ad.add(1,2));
+
+        //multiple body statement with single parameter
+        details nam = na->{
+                String str1= "Hey, my name is ";
+                return str1+na;
+        };
+        System.out.println(nam.name("Akrithi"));
+
+        //thread using lambda
+        Runnable r= ()-> System.out.println("Thread is slowly running");
+
+        Thread t = new Thread(r);
+        t.start();
+    }
+}
